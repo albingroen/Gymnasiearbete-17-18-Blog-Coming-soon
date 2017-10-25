@@ -1,58 +1,52 @@
 import React from 'react'
 import Link from 'next/link'
-import { Back } from '../comps/back.js'
 
-export default class Blog extends React.Component {
+export default class Post2 extends React.Component {
   render() {
     return (
       <div>
         <div className="header">
-          <Back />
-          <h1 className="blog-title">Gymnasiearbetet-2017-2018</h1>
-          <h2 className="blog-authour">Albin Groen & Albin Iivari</h2>
-          <Link href="https://github.com/albingroen">
-            <a className="github gh-ag">Github - Albin Groen</a>
+          <Link href="/blog">
+            <a className="back">Tillbaka</a>
           </Link>
-          <Link href="https://github.com/fearme99">
-            <a className="github gh-ai">Github - Albin Iivari</a>
-          </Link>
+          <h1 className="blog-title">2. Från start</h1>
+          <h2 className="blog-authour">Av: Albin Groen</h2>
+          <p className="text">
+            Vi visste vad vi ville göra från första början. En hemsida där
+            spelare i spelet "League of Legends" skulle skulle kunna söka på
+            sitt, eller någon annans namn och få upp statistik om den spelaren.
+            Vi visste att spelets skapare "Riot" hade en API för att hämta data.
+            <br />
+            <br />
+            Vi visste dock ingenting egentligen om i vilken ände man skulle
+            börja, eller vad vi skulle använda oss av. Vi var relativt arroganta
+            och tänkte att vi kunde bygga sidan med vanligt HTML, CSS och
+            JQuery. Det var egentligen de enda vi kunde vid det här tillfället.
+            Det fungerade förstås inte och vi bestämde oss för att göra lite
+            research. Snabbt efter att vi hade börjat söka så insåg vi att man
+            var tvungen att ha en så kallad "server".
+            <br />
+            <br />
+            "Server" var dock ingenting som vi var igenkända med och vi blev nog
+            relativt ställda, och visste inte vart vi skulle börja. Några veckor
+            in i projektet fick vi höra om ett ramverk vid namn{' '}
+            <Link href="meteor.com">
+              <a className="meteorLink">MeteorJS</a>
+            </Link>. Det var ett ramverk som gjorde det enkelt att komma igång
+            med projekt som dessa. Och gjorde det enkelt att binda samman server
+            och klient delen. Vi startdde igång projektet genom att sätta upp
+            ett "repository" på Github för att kunna samaarbeta och skicka och
+            hämta kod från varandra. Vi lärde oss mycket på vägen då vi byggde
+            med MetoerJS och det kändes bra. Efter ett tag började dock sidan
+            ladda extremt långsamt på första laddning. Scrollningen var seg och
+            sidan blev till slut inte användbar.
+            <br />
+            <br />
+            Detta gällde endast i Chrome, men vi bestämde oss för att byta
+            ramverk. Mer om det i nästa inlägg!
+          </p>
         </div>
-        <div className="content-wrapper">
-          <div className="content">
-            <Link href="posts/post2">
-              <a>
-                <div className="postContainer">
-                  <h1 className="title">2. Från start.</h1>
-                  <h4 className="date">2017-10-25</h4>
-                  <p className="summary">
-                    Vi visste vad vi ville göra från första början. En hemsida
-                    där spelare i spelet "League of Legends" skulle skulle kunna
-                    söka på sitt, eller någon annans namn och få upp statistik
-                    om den spelaren. Vi visste att spelets skapare "Riot" hade
-                    en API för att hämta data.
-                  </p>
-                </div>
-              </a>
-            </Link>
-            <Link href="posts/post1">
-              <a>
-                <div className="postContainer">
-                  <h1 className="title">1. Vårt första inlägg</h1>
-                  <h4 className="date">2017-10-23</h4>
-                  <p className="summary">
-                    Välkommen till vår blogg! Vi får lov att ursäkta att det har
-                    dragit ut på tiden, då vi inte lyckades komma igång med
-                    något blogg-verktyg speciellt bra och istället bestämde oss
-                    för att bygga vårt eget. Det tog inte speciellt lång tid att
-                    bygga den här bloggen, och är ingenting som vi har lagt
-                    mycket krut på...
-                  </p>
-                </div>
-              </a>
-            </Link>
-          </div>
-        </div>
-        <style jsx global>{`
+        <style jsx>{`
           .content {
             width: 700px;
             margin: 0 auto;
@@ -61,6 +55,10 @@ export default class Blog extends React.Component {
             justify-content: center;
             flex-direction: column;
             margin-top: 100px;
+          }
+
+          .meteorLink {
+            color: cornflowerblue;
           }
 
           @media screen and (max-width: 800px) {
@@ -112,21 +110,15 @@ export default class Blog extends React.Component {
           }
 
           .postContainer {
-            padding: 25px;
-            transition: 0.1s ease-out 0s;
-            -webkit-box-shadow: 0px 20px 54px -4px rgba(0, 0, 0, 0.05);
-            -moz-box-shadow: 0px 20px 54px -4px rgba(0, 0, 0, 0.05);
-            box-shadow: 0px 20px 54px -4px rgba(0, 0, 0, 0.05);
-            border-radius: 5px;
-            background: white;
             margin-bottom: 50px;
+            padding: 25px;
+            border: 1px dashed rgba(0, 0, 0, 0.3);
+            transition: 0.1s ease-out 0s;
           }
 
           .postContainer:hover {
+            border: 1px dashed rgba(0, 0, 0, 0.6);
             transition: 0.1s ease-out 0s;
-            -webkit-box-shadow: 0px 30px 54px -4px rgba(0, 0, 0, 0.1);
-            -moz-box-shadow: 0px 30px 54px -4px rgba(0, 0, 0, 0.1);
-            box-shadow: 0px 30px 54px -4px rgba(0, 0, 0, 0.1);
           }
 
           .title,
@@ -134,7 +126,8 @@ export default class Blog extends React.Component {
           .date,
           .blog-authour,
           .github,
-          .text {
+          .text,
+          .back {
             font-family: 'Roboto', sans-serif;
           }
 
@@ -193,6 +186,13 @@ export default class Blog extends React.Component {
           }
 
           .gh-ag {
+            margin-bottom: 10px;
+          }
+
+          .back {
+            color: cornflowerblue;
+            display: block;
+            transition: 0.1s ease-out 0s;
             margin-bottom: 10px;
           }
 
