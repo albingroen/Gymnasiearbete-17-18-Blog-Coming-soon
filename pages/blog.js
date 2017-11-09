@@ -16,9 +16,23 @@ export default class Blog extends React.Component {
           <Link href="https://github.com/fearme99">
             <a className="github gh-ai">Github - Albin Iivari</a>
           </Link>
-        </div>
         <div className="content-wrapper">
           <div className="content">
+          </div>
+              <Link href="posts/post3">
+                <a>
+                  <div className="postContainer">
+                    <h1 className="title">3. Nytt ramverk</h1>
+                    <h4 className="date">2017-11-09</h4>
+                    <p className="summary">
+                      Med prestandaproblemen så bestämde vi oss vilket annat ramverk som vi ville arbeta med.
+                      Vi valde  <Link href="https://reactjs.org/">
+                          <a className="ReactLink">ReactJS</a>
+                        </Link>
+                    </p>
+                  </div>
+                </a>
+              </Link>
             <Link href="posts/post2">
               <a>
                 <div className="postContainer">
